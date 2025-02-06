@@ -22,7 +22,7 @@ on:
       - "*.sbt"
       - "project/**"
       - "prism-node/**"
-      - "event-notification"
+      - "event-notification/**"
 
 permissions:
   contents: write
