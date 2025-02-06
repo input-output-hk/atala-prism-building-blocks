@@ -83,3 +83,11 @@ jobs:
           repository: input-output-hk/atala-prism-helm-charts
           event-type: build-chart-package
           client-payload: '{"version": "${{ env.RELEASE_VERSION }}", "chart": "cloud-agent"}'
+
+      - name: Trigger component integration
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.ATALA_GITHUB_TOKEN }}
+          repository: input-output-hk/integration
+          event-type: integration
+          client-payload: '{"component": "cloud-agent", "version": "${{ env.RELEASE_VERSION }}"}'
